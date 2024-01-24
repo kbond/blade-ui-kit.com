@@ -2,13 +2,20 @@
     <x-navigation/>
 
     <div id="icon-detail" class="mt-6 relative max-w-screen-xl px-4 mx-auto sm:px-6">
-        <x-h3>
-            <x-a :href="$icon->set->repository">
-                {{ $icon->set->name }}
-            </x-a>
+        <div class="flex items-center justify-between">
+            <x-h3>
+                <x-a :href="$icon->set->repository">
+                    {{ $icon->set->name }}
+                </x-a>
 
-            <br class="sm:hidden"> / {{ $icon->name }}
-        </x-h3>
+                <br class="sm:hidden"> / {{ $icon->name }}
+            </x-h3>
+
+            <x-buttons.primary :href="route('blade-icon-download', $icon)">
+                <x-zondicon-download class="-ml-0.5 mr-2 h-4 w-4" />
+                Download
+            </x-buttons.primary>
+        </div>
 
         <div class="mt-6 sm:grid sm:grid-cols-5 sm:gap-10 w-full">
             <div class="sm:col-span-3 flex items-center justify-center w-full py-12 bg-gray-100 text-gray-700">
